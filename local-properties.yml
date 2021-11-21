@@ -1,0 +1,13 @@
+twitter:
+  token: AAAAAAAAAAAAAAAAAAAAAPEKqwEAAAAAgRnphcrmWTO1Elo4qyjHVKHFKEE%3DOUd7ESKI3Jv5q8EENQw9OkXRdoXWg2VIwpsmuItkLbZwElpBDA
+  api-url: http://localhost:8080
+
+spark:
+  host: localhost
+  port: 9009
+  file-path: test.txt
+
+flask:
+  host: localhost
+  port: 5001
+  api-url: http://localhost:5001
