@@ -34,7 +34,9 @@ exécutez ```sh kill.sh``` dans un nouveau terminal
 
 
 ### Demo
-![Alt Text](asset/demo.png)
+![Demo](asset/demo.gif)
+
+
 
 
 
