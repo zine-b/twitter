@@ -1,4 +1,3 @@
-
 import yaml
 
 def read_one_block_of_yaml_data(filename):

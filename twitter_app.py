@@ -13,7 +13,6 @@ def create_url(keyword, end_date, next_token=None, max_results=10):
     #search_url = "https://api.twitter.com/2/tweets/search/recent"
     search_url = properties['twitter']['api-url'] + "/2/tweets/search/recent"
 
-    # change params based on the endpoint you are using
     query_params = {'query': keyword,
                     'end_time': end_date,
                     'max_results': max_results,
@@ -31,7 +30,6 @@ def get_response(url, headers, params):
 
 
 def get_tweet_data(next_token=None, query='corona', max_results=20):
-    # Inputs for the request
     bearer_token = properties['twitter']['token']
     headers = {"Authorization": f"Bearer {bearer_token}"}
     keyword = f"{query} lang:en has:hashtags"
@@ -49,7 +47,7 @@ def get_tweet_data(next_token=None, query='corona', max_results=20):
     return json_response
 
 
-def get_tag(tag_info: dict):
+def get_hashtag(tag_info: dict):
     tag = str(tag_info['tag']).strip()
     hashtag = str('#' + tag + '\n')
     print(f"Hashtag: {hashtag.strip()}")
@@ -58,13 +56,11 @@ def get_tag(tag_info: dict):
 
 def send_tweets_to_spark(http_resp, tcp_connection):
     data: list = http_resp["data"]
-    # tweet is a dict
     for tweet in data:
         try:
             hashtag_list = tweet['entities']['hashtags']
             for tag_info in hashtag_list:
-                # sending only hashtag
-                hashtag = get_tag(tag_info)
+                hashtag = get_hashtag(tag_info)
                 tcp_connection.send(hashtag.encode("utf-8"))
         except KeyError:
             print("No hashtag found in current tweet, moving on...")
@@ -84,7 +80,6 @@ def input_term():
     parser.add_argument('-m', '--max_results', type=int, help="max results", required=False)
     parser.add_argument('-s', '--sleep_timer', type=float, help="sleep timer", required=False)
 
-    # Parse and print the results
     args = parser.parse_args()
 
     return args.pages, args.keywords, args.max_results, args.sleep_timer
@@ -92,7 +87,6 @@ def input_term():
 
 if __name__ == '__main__':
     properties = read_one_block_of_yaml_data('local-properties.yml')
-    # no_of_pages = 2
     # queries = ['corona', 'bitcoin', 'gaming', 'Android']
     no_of_pages, queries, max_results, sleep_timer = input_term()
     if max_results is None:
