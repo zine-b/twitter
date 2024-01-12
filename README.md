@@ -15,7 +15,7 @@ Par la suite, les tweets récupérés seront transmis à Spark via une connexion
 ### Exécution de l'application
 - La version Java doit être compatible avec pyspark. La version actuelle de pyspark est la 3.2.0 et seule la version Java 11 est
    compatible. Vous pouvez vérifier la version de Java en exécutant la commande ```java --version```. Assurez-vous de n'avoir que Java compatible version installée, et d'avoir python3.7
-- ```cd Spark-tweet```
+- ```cd twitter```
 - ```pip install -r ./requirements.txt```
 
 #### 1. Exécution automatique
