@@ -58,4 +58,4 @@ def update_data():
 
 if __name__ == "__main__":
     properties = read_one_block_of_yaml_data('local-properties.yml')
-    app.run(host=properties['flask']['host'], port=properties['flask']['port'], debug=True)
+    app.run(host='0.0.0.0', port=properties['flask']['port'], debug=True)
