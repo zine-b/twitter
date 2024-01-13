@@ -42,6 +42,13 @@ To use the image docker : https://hub.docker.com/repository/docker/marricha/twit
 - Exécuter ```docker pull marricha/twitter:1.0```
 - Exécuter ```docker run -d -p 5001:5001 marricha/twitter:1.0```
 
+### Demo 
+![Demo](asset/demoDockerImage.png)
+![Demo](asset/demoAppFromImageDocker.png)
+
+### Remark
+We create and test the image on MacOs.
+
 
 
 
